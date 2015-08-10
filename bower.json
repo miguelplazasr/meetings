@@ -1,0 +1,38 @@
+{
+  "name": "meetings",
+  "version": "0.0.0",
+  "authors": [
+    "Miguel Plazas <miguelplazasr@gmail.com>"
+  ],
+  "description": "Meeting register",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/assets/vendor/",
+    "test",
+    "tests"
+  ],
+  "main": [
+    "dist/css/sb-admin-2.css",
+    "dist/js/sb-admin-2.js"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "metisMenu": "~2.1.0",
+    "font-awesome": "~4.4.0",
+    "datatables": "~1.10.7",
+    "datatables-plugins": "~1.10.7",
+    "flot": "~0.8.3",
+    "holderjs": "~2.8.1",
+    "morrisjs": "~0.5.1",
+    "datatables-responsive": "~1.0.6",
+    "bootstrap-social": "~4.9.1",
+    "flot.tooltip": "~0.8.5",
+    "datetimepicker": "~2.4.5"
+  }
+}
