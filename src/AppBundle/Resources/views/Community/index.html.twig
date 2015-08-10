@@ -1,1 +1,23 @@
-{# empty Twig template #}
+{% extends '::base.html.twig' %}
+
+
+{% block body %}
+<div ng-app="ComunityApp" class="container">
+<div ng-controller="indexController">
+    <h1>[[title]]</h1>
+
+    <ul>
+        <li ng-repeat="community in communitiesList">
+            [[community.name]]
+        </li>
+    </ul>
+
+</div>
+
+</div>
+{% endblock %}
+
+{% block javascripts %}
+
+    <script src="{{ asset('bundles/app/js/communityController.js') }}"
+{% endblock %}

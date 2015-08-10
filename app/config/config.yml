@@ -40,7 +40,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ ]
+    bundles:        [ 'AppBundle' ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -78,3 +78,13 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+fos_rest:
+    param_fetcher_listener: force
+    body_listener: true
+    format_listener: false
+    service:
+        router: router
+        templating: templating
+        serializer: jms_serializer.serializer
+        view_handler: fos_rest.view_handler.default

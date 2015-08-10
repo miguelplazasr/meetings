@@ -9,7 +9,24 @@
 namespace AppBundle\Model;
 
 
-class CommunityInterface
+interface CommunityInterface
 {
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return CommunityInterface
+     */
+    public function setName($name);
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName();
+
+
+
 
 }

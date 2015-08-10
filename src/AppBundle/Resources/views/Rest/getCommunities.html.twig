@@ -1,1 +1,9 @@
-{# empty Twig template #}
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    {% for community in communities %}
+        {{ community.id }} - {{ community.name }}
+    {% endfor %}
+
+{% endblock %}

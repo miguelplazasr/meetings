@@ -1,0 +1,11 @@
+app_web:
+    resource: "@AppBundle/Controller"
+    prefix:   /
+    type:     annotation
+
+app_api:
+    resource: "@AppBundle/Controller/Api"
+    prefix:   /api
+    type:     annotation
+    options:
+        expose: true

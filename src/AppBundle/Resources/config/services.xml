@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
 
 <container xmlns="http://symfony.com/schema/dic/services"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <!--
     <services>
@@ -13,4 +13,14 @@
         </service>
     </services>
     -->
+    <parameters>
+        <parameter key="app.community.handler.class">AppBundle\Handler\CommunityHandler</parameter>
+        <parameter key="app.community.class">AppBundle\Entity\Community</parameter>
+    </parameters>
+    <services>
+        <service class="AppBundle\Handler\CommunityHandler" id="app.handler.community_handler">
+            <argument id="doctrine.orm.entity_manager" type="service"/>
+            <argument>%app.community.class%</argument>
+        </service>
+    </services>
 </container>

@@ -9,17 +9,22 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 class LoadCommunityData implements FixtureInterface
 {
-    static public $pages = array();
+    static public $communities = array();
 
     public function load(ObjectManager $manager)
     {
-        $page = new Page();
-        $page->setTitle('title');
-        $page->setBody('body');
+        $community = new Community();
+        $community->setName('name');
 
-        $manager->persist($page);
+        $manager->persist($community);
         $manager->flush();
 
-        self::$pages[] = $page;
+        self::$communities[] = $community;
+    }
+
+    public function testGet() {
+
+        $fixtures = array('AppBundle\Tests\Fixtures\Entity\LoadCommunityData');
+
     }
 }

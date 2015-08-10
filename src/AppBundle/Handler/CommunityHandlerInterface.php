@@ -9,7 +9,20 @@
 namespace AppBundle\Handler;
 
 
-class CommunityHandlerInterface
+use AppBundle\Model\CommunityInterface;
+
+interface CommunityHandlerInterface
 {
+    /**
+     * Get a Community given the identifier
+     *
+     * @api
+     *
+     * @param mixed $id
+     *
+     * @return CommunityInterface
+     */
+    public function getId($id);
+
 
 }

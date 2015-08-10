@@ -16,7 +16,7 @@
         'assets/vendor/metisMenu/dist/metisMenu.min.css'
         'assets/vendor/font-awesome/css/font-awesome.min.css'
         'assets/vendor/datetimepicker/jquery.datetimepicker.css'
-        'bundles/sipmain/css/sb-admin-2.css'
+        'bundles/app/css/sb-admin-2.css'
     filter='cssrewrite' output='css/compiled/app.css' %}
     <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
@@ -308,10 +308,16 @@
         'assets/vendor/bootstrap/dist/js/bootstrap.min.js'
         'assets/vendor/metisMenu/dist/metisMenu.min.js'
         'assets/vendor/datetimepicker/jquery.datetimepicker.js'
-        'bundles/sipmain/js/sb-admin-2.js'
+        'assets/vendor/angular/angular.js'
+        'assets/vendor/lodash/lodash.js'
+        'assets/vendor/restangular/dist/restangular.js'
+        'bundles/app/js/sb-admin-2.js'
     %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
+
+<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
 
 {% block javascripts %} {% endblock %}
 
