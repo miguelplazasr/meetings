@@ -1,8 +1,6 @@
 /**
  * Created by miguelplazas on 10/08/15.
  */
-(function () {
-    'use strict';
 
     var config = angular.module("ComunityApp", ['restangular'],
         function ($interpolateProvider) {
@@ -10,16 +8,20 @@
             $interpolateProvider.endSymbol(']]')
         });
 
+
     config.controller("indexController", function ($scope, Restangular) {
         $scope.title = "Communities";
-        $scope.communitiesList = Restangular.all(getRoute('get_communities')).getList();
+        $scope.communitiesList = [];
+        Restangular.all(getRoute('get_communities')).getList().then(function(communitiesList){
+            $scope.communitiesList = communitiesList;
+        })
     });
 
     var app = angular.module('community', ['ComunityApp']);
 
     app.config(function(RestangularProvider){
-        RestangularProvider.setBaseUrl('http://localhosr:8000');
-        RestangularProvider.setRequestSuffix('.json');
+        RestangularProvider.setBaseUrl('/api');
+        //RestangularProvider.setRequestSuffix('.json');
     });
 
 
@@ -31,5 +33,4 @@
      */
     var getRoute = function (routeName) {
         return Routing.generate(routeName, {}, false).slice(1);
-    }
-})();
+    };

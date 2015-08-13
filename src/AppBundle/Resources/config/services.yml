@@ -1,4 +1,11 @@
+parameters:
+        app.community.handler.class: AppBundle\Handler\CommunityHandler
+        app.community.class: AppBundle\Entity\Community
+
 services:
 #    app.example:
 #        class: AppBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+    app.handler.community_handler:
+        class: %app.community.handler.class%
+        arguments: [ "@doctrine.orm.entity_manager", %app.community.class% ]

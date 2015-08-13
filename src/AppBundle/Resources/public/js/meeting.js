@@ -11,8 +11,8 @@
     var app = angular.module('demoApp', ['cocktails']);
 
     app.config(function(RestangularProvider) {
-        RestangularProvider.setBaseUrl('http://localhost:8000'); //wOOt, ugly ...but that's a demo ;)
-        RestangularProvider.setRequestSuffix('.json');
+        RestangularProvider.setBaseUrl('/api'); //wOOt, ugly ...but that's a demo ;)
+        //RestangularProvider.setRequestSuffix('.json');
     });
     /**
      * transform http://localhost:8000//app_dev.php => http://localhost:8000/app_dev.php

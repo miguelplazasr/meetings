@@ -12,6 +12,11 @@ namespace AppBundle\Model;
 interface CommunityInterface
 {
     /**
+     * @return mixed
+     */
+    public function getId();
+
+    /**
      * Set name
      *
      * @param string $name

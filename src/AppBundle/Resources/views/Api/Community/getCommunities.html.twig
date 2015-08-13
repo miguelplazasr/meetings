@@ -1,0 +1,19 @@
+{% extends '::base.html.twig' %}
+
+
+{% block body %}
+    <h1 class="title">{{ 'page.list'|trans({}, 'AcmeBlogBundle') }}</h1>
+
+    <ul id="page-list">
+        {% for page in communities %}
+            <li>
+                <a ">{{ page.name }}</a>
+                {#[<a href="{{ path('api_1_edit_pages', {'id': page.id}) }}">{{ 'page.edit.link'|trans({}, 'AcmeBlogBundle') }}</a>]#}
+                {#[<a href="{{ path('api_1_remove_pages', {'id': page.id}) }}">{{ 'page.remove.link'|trans({}, 'AcmeBlogBundle') }}</a>]#}
+            </li>
+        {% else %}
+            <li>{{ 'page.list.empty'|trans({}, 'AcmeBlogBundle') }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

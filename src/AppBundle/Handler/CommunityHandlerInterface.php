@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: miguelplazas
- * Date: 10/08/15
- * Time: 10:03 AM
+ * Date: 13/08/15
+ * Time: 4:30 PM
  */
 
 namespace AppBundle\Handler;
@@ -11,18 +11,32 @@ namespace AppBundle\Handler;
 
 use AppBundle\Model\CommunityInterface;
 
-interface CommunityHandlerInterface
+interface CommunityHandlerInterface extends HandlerInterface
 {
+
     /**
-     * Get a Community given the identifier
+     * Edit a Entity.
      *
      * @api
      *
-     * @param mixed $id
+     * @param CommunityInterface $community
+     * @param array $parameters
      *
      * @return CommunityInterface
      */
-    public function getId($id);
+    public function put(CommunityInterface $community, array $parameters);
+
+    /**
+     * Partially update a Community.
+     *
+     * @api
+     *
+     * @param CommunityInterface $community
+     * @param array $parameters
+     *
+     * @return CommunityInterface
+     */
+    public function patch(CommunityInterface $community, array $parameters);
 
 
 }
