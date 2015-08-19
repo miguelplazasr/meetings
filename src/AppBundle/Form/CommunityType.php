@@ -25,7 +25,10 @@ class CommunityType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Community'
+            'data_class' => 'AppBundle\Entity\Community',
+            'csrf_protection' => false,
+            //'validation_groups' => false,
+            'allow_extra_fields' => true,
         ));
     }
 
@@ -34,6 +37,6 @@ class CommunityType extends AbstractType
      */
     public function getName()
     {
-        return 'appbundle_community';
+        return '';
     }
 }

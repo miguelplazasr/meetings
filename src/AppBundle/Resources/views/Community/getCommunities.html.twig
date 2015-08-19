@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+
+
+{% block body %}
+    <h1 class="title">{{ 'community.list'|trans({}, 'AppBundle') }}</h1>
+
+    <p>
+    </p>
+
+    <ul id="page-list">
+        {% for id, community in communities %}
+            <li>
+                <a  href="{{ path('get_community', {'id': community.id}) }}">{{ community.name }}</a>
+                {[<a href="{{ path('edit_community', {'id': community.id}) }}">{{ 'page.edit.link'|trans({}, 'AcmeBlogBundle') }}</a>]}
+                {[<a href="{{ path('remove_community', {'id': community.id}) }}">{{ 'page.remove.link'|trans({}, 'AcmeBlogBundle') }}</a>]}
+            </li>
+        {% else %}
+            <li>{{ 'community.list.empty'|trans({}, 'AppBundle') }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

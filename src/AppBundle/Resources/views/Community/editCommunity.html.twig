@@ -1,0 +1,9 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {#%  if (form is not null) %#}
+        {{ form_start(form, {'action': path('put_community', {'id': id}), 'method': 'PUT'}) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Update" class="btn btn-default pull-right"/>
+    {#% endif %#}
+{% endblock %}

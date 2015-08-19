@@ -12,21 +12,24 @@ namespace AppBundle\Handler;
 use AppBundle\Form\CommunityType;
 use AppBundle\Model\CommunityInterface;
 use Doctrine\ORM\EntityManager;
+use Symfony\Component\Form\FormFactory;
+use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
+use AppBundle\Exception\InvalidFormException;
 
 class CommunityHandler implements CommunityHandlerInterface
 {
     private $em;
     private $entityClass;
     private $repository;
-    private $form;
+    private $formFactory;
 
-    public function __construct(EntityManager $em, $entityClass )
+    public function __construct(EntityManager $em, $entityClass, FormFactory $formFactory )
     {
         $this->em = $em;
         $this->entityClass = $entityClass;
         $this->repository = $this->em->getRepository($this->entityClass);
-        //$this->form = $form;
+        $this->formFactory = $formFactory;
     }
 
     /**
@@ -52,7 +55,7 @@ class CommunityHandler implements CommunityHandlerInterface
      */
     public function put(CommunityInterface $community, array $parameters)
     {
-        // TODO: Implement put() method.
+        return $this->processForm($community, $parameters, 'PUT');
     }
 
     /**
@@ -67,17 +70,20 @@ class CommunityHandler implements CommunityHandlerInterface
      */
     public function patch(CommunityInterface $community, array $parameters)
     {
-        // TODO: Implement patch() method.
+        return $this->processForm($community, $parameters, 'PATCH');
     }
 
     /**
      * Get a list of the Communities.
      *
+     * @param int $limit  the limit of the result
+     * @param int $offset starting from the offset
+     *
      * @return array
      */
-    public function all()
+    public function all($limit = 5, $offset = 0, $orderby = null)
     {
-        return $this->repository->findAll();
+        return $this->repository->findBy(array(), $orderby, $limit, $offset);
     }
 
     /**
@@ -100,7 +106,7 @@ class CommunityHandler implements CommunityHandlerInterface
      *
      * @param CommunityInterface $community
      * @param array $parameters
-     * @param String $method
+     * @param string $method
      * @return CommunityInterface
      * @throws InvalidFormException
      */
@@ -124,5 +130,33 @@ class CommunityHandler implements CommunityHandlerInterface
 
     private function createCommunity() {
         return new $this->entityClass();
+    }
+
+    /**
+     * Remove a Community
+     * @param CommunityInterface $community
+     * @param string $method
+     * @return bool
+     */
+    public function processDelete(CommunityInterface $community, $method = "DELETE")
+    {
+        $this->em->remove($community);
+        $this->em->flush();
+        return true;
+    }
+
+    /**
+     * Delete a community
+     *
+     * @param CommunityInterface $community
+     * @return bool
+     *
+     */
+    public function delete(CommunityInterface $community)
+    {
+
+        return $this->processDelete($community, 'DELETE');
+
+
     }
 }

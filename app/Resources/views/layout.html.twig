@@ -11,13 +11,12 @@
 
     <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
-    {% stylesheets
+    {% stylesheets filter='cssrewrite' output='css/compiled/app.css'
         'assets/vendor/bootstrap/dist/css/bootstrap.min.css'
         'assets/vendor/metisMenu/dist/metisMenu.min.css'
         'assets/vendor/font-awesome/css/font-awesome.min.css'
         'assets/vendor/datetimepicker/jquery.datetimepicker.css'
-        'bundles/app/css/sb-admin-2.css'
-    filter='cssrewrite' output='css/compiled/app.css' %}
+        'bundles/app/css/sb-admin-2.css' %}
     <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
 

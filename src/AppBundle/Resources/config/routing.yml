@@ -1,12 +1,16 @@
-app_web:
-    resource: "@AppBundle/Controller"
-    prefix:   /
-    type:     annotation
+app_community:
+    type: rest
+    resource: AppBundle\Controller\CommunityController
 
-app_api:
-    resource: "@AppBundle/Controller/Api"
-    prefix:   /api
-    type:     annotation
-    options:
-        expose: true
+#app_web:
+#    resource: "@AppBundle/Controller"
+#    prefix:   /
+#    type:     rest
+
+#app_api:
+#    resource: "@AppBundle/Controller/Api"
+#    prefix:   /api
+#    type:     annotation
+#    options:
+#        expose: true
 

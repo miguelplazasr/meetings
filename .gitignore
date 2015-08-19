@@ -10,5 +10,7 @@
 /vendor/
 /web/bundles/
 /web/assets/
-.idea/*
+/web/js/
+/web/css/
+.idea/
 *~
